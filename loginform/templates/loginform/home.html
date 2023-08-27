@@ -2,10 +2,15 @@
 {% block content %}
 
 <style>
-    td.colorfy {
+    td.colorfyodd {
         background: #32506b;
         color: white;
     }
+    td.colorfyeven {
+        background: #799fc1;
+        color: white;
+    }
+    
 </style>
 
 {% if user.is_authenticated %}
@@ -15,15 +20,15 @@
     <table class="table table-striped">
         <tbody>
             <tr>
-                <td class='colorfy'>Username:</td>
+                <td class='colorfyodd'>Username:</td>
                 <td>{{ user.username }}</td>
             </tr>
             <tr>
-                <td class='colorfy'>Full Name:</td> 
+                <td class='colorfyeven'>Full Name:</td> 
                 <td>{{ user.first_name }} {{ user.last_name }}</td>
             </tr>
             <tr>
-                <td class='colorfy'>Email:</td>
+                <td class='colorfyodd'>Email:</td>
                 <td>{{ user.email }}</td>
             </tr>        
         </tbody>
