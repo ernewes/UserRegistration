@@ -1,11 +1,10 @@
 {% extends 'loginform/base.html' %}
 {% block content %}
 
-
-
 <div class="col-md-6 offset-md-3" style="padding-top: 40px;">
     <h2 class="text-center">Edit User Profile</h2>
     <form method="POST" action="{% url 'edit_profile' %}">
+
         {% csrf_token %} <!-- Cross Site Request Forgery token -->
 
         {% if form.errors %}
@@ -20,12 +19,12 @@
 
         {{ form.as_p }}
 
-        <input type="submit" value="Save Profile" class="btn btn-secondary">
-
+        <button type="submit" value="Save Profile" class="btn btn-secondary"><i class="fa-solid fa-floppy-disk"></i> Save Profile</button>
+        
     </form>
     <div style="padding-top:20px">
         <form action="{% url 'change_password' %}">
-            <input type="submit" value="Change Password" class="btn btn-secondary"/>
+            <button type="submit" value="Change Password" class="btn btn-secondary"><i class="fa-solid fa-lock"></i> Change Password</button>
         </form>
     </div>
 </div>
