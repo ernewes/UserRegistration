@@ -1,0 +1,32 @@
+{% extends 'loginform/base.html' %}
+{% block content %}
+
+
+
+<div class="col-md-6 offset-md-3" style="padding-top: 40px;">
+    <h2 class="text-center">Edit User Profile</h2>
+    <form method="POST" action="{% url 'edit_profile' %}">
+        {% csrf_token %} <!-- Cross Site Request Forgery token -->
+
+        {% if form.errors %}
+            <div class="alert alert-warning alert-dismissable" role="alert">        
+                <div>
+                    <button class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <p>Errors found on User Registration Form...</p>
+                </div>
+            </div>
+            
+        {% endif %}
+
+        {{ form.as_p }}
+
+        <input type="submit" value="Save Profile" class="btn btn-secondary">
+
+    </form>
+    <div style="padding-top:20px">
+        <form action="{% url 'change_password' %}">
+            <input type="submit" value="Change Password" class="btn btn-secondary"/>
+        </form>
+    </div>
+</div>
+{% endblock %}

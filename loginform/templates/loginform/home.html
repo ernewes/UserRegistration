@@ -1,0 +1,39 @@
+{% extends 'loginform/base.html' %}
+{% block content %}
+
+<style>
+    td.colorfy {
+        background: #32506b;
+        color: white;
+    }
+</style>
+
+{% if user.is_authenticated %}
+<div class="col-md-6 offset-md-3" style="padding-top: 40px;">
+    <h1>User Profile</h1>
+    </br>
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <td class='colorfy'>Username:</td>
+                <td>{{ user.username }}</td>
+            </tr>
+            <tr>
+                <td class='colorfy'>Full Name:</td> 
+                <td>{{ user.first_name }} {{ user.last_name }}</td>
+            </tr>
+            <tr>
+                <td class='colorfy'>Email:</td>
+                <td>{{ user.email }}</td>
+            </tr>        
+        </tbody>
+    </table>
+ </div>
+{% else %}
+    <h1>Welcome to the User Registration and Login System</h1>
+    </br>
+    <h2>Click Login in top right to login</h2>
+{% endif %}
+
+
+{% endblock %}

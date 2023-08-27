@@ -1,0 +1,24 @@
+{% extends 'loginform/base.html' %}
+{% block content %}
+
+
+
+<div class="col-md-6 offset-md-3" style="padding-top: 40px;">
+	<h2 class="text-center">Login</h2>
+	<form method="POST">
+		{% csrf_token %} <!-- Cross Site Request Forgery token -->
+		<div class="mb-3">
+			<label for="exampleInputEmail1" class="form-label">Username</label>
+		    <input type="text" class="form-control" placeholder="Enter Username" name="username">
+		</div>
+		<div class="mb-3">
+		    <label for="exampleInputPassword1" class="form-label">Password</label>
+		    <input type="password" class="form-control" placeholder="Enter Password" name="password">
+		</div>
+
+		<button type="submit" class="btn btn-secondary"><i class="fa-solid fa-key"></i> Login</button>
+
+	</form>
+</div>
+
+{% endblock %}
